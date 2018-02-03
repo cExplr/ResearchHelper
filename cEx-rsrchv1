@@ -1,0 +1,67 @@
+#! /bin/bash
+
+#################################################################################################
+#												#
+#	A RESEARCH TOOL WHICH HELPS OPEN ALL THE WEBSITES AND PDFS THAT YOU ARE 		#
+#	CURRENTLY WORKING ON.									#
+#												#
+#												#
+#	TO ADD WEBSITES, ADD IT TO website.txt 							#
+#												#
+#	TO ADD FILES TO OPEN LIKE PNG FILES, TEXT FILES, PDFs ETC, ADD THEM TO refBooks.txt	#
+#												#
+#	TO ADD MORE CUSTOM TEXT FILES FOR SAY images.txt ,  nano images.txt AND ADD THE FULL	#
+#	PATH TO THE FILES OR IMAGES. YOU CAN SEARCH UP THE DIRECTORY WITH pwd COMMAND, COPY 	#
+#	IT AND PASTE IT INTO THE CUSTOM txt FILES AND ADD THE NAME OF THE FILES WITH NO 	#
+#	WHITSPACES AT ALL.									#
+#												#
+#	TO USE IT AS A COMMAND, MAKE SURE TO chmod 755 <this-file> and cp <this-file> /usr/bin	#
+#												#
+#	TO ADD MORE .txt FILES TO READ LIKE IMAGES.txt, YOU CAN type open_files <text-file>     #
+#       WITH ITS FULL PATH TO THE FILES.							#
+#												#
+#################################################################################################
+
+
+
+
+function open_sites(){
+if [ -f $1 ]
+then
+	while read -r site
+	do
+	printf "\nOpening $site ...\n"
+	firefox --new-tab $site
+	printf "Done\n"
+	done < $1
+else
+	printf "\n $site not found\n"
+fi
+}
+
+function open_files(){
+if [ -f $1 ]
+then
+        while read -r file
+        do
+        printf "\nOpening $file ...\n"
+        xdg-open $file
+        printf "Done\n"
+        done < $1
+else
+        printf "\n $file not found\n"
+fi
+}
+
+
+function main(){
+
+    # TO ADD MORE NEW TEXT FILES  SIMPLY CHOOSE THE TYPES
+    # OPEN_FILES FOR ANY FILES BE IT MP4, JPEG, PNG, TXT, md, ETC
+    # OPEN_SITES IS FOR WEBPAGES OPENED WITH FIREFOX
+   open_files refBooks.txt
+   open_sites website.txt
+
+}
+
+main

@@ -1,0 +1,53 @@
+#! /bin/bash
+
+# THIS PROGRAM CREATES A NEW RESEARCH PROJECT 
+
+
+read -p  "\n\nEnter new research title : " title
+read -p "Confirm title as : $title? [y/n]" choice
+
+if [ $choice == "y" ]
+then
+
+	read -p  "\nEnter the directory you want this research file to be stored : " dir
+	if [ -d $dir ]
+	then
+		read -p  "\nInput directory exists ... Confirm to store at $dir ? " confirm
+		if [ $confirm == "y" ]
+		then
+			# PROGRAM IS MOSTLY HERE
+			printf "\nPROIGRAM OCCURS\n"
+			printf "Current Directory:\n"
+			pwd
+			createNewDir=$(pwd)
+			printf "Changing directory to $dir\n\n"
+                        cd $dir
+			printf "Current Directory:\n"
+                        pwd
+			printf "\n\nCreating new folder $title\n"
+			mkdir $title
+			printf "\nFolder $title done\n\n"
+			printf "Changing Directory to folder $title"
+			cd $title
+			printf "Current Directory:\n"
+                        pwd
+			printf "\n\nCopy opener to the folder $title..."
+			cp $createNewDir/cEx-rsrchv1 ./
+			mv cEx-rsrchv1 research$title
+			printf "copying files over to $dir/title"
+			cp $createNewDir/website.txt $createNewDir/refBooks.txt ./
+			nano refBooks.txt
+			nano website.txt
+			
+			printf "\nDone\n\n"
+		else
+			printf "\nNew Research not created ... \nEXITING THIS PROGRAM...\n"
+
+		fi
+	else
+		printf "\nNew Research not created ... EXITING THIS PROGRAM...\n"
+	fi
+
+else
+printf "\nNew research not created ... "
+fi

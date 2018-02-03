@@ -1,0 +1,6 @@
+-----------------DELETE THE BELOW BEFORE SAVING ANYTHING ------------
+FOR WEBSITE, LEAVE A SPACE. ALL WEBSITES SHOuLd be IN ONE LiNE (recommended)
+Example
+www.google.com www.example.com
+
+-------------------DELETE THE ABOVE BEFORE SAVING ANYTHING ---------------

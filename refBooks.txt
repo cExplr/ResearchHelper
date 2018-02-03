@@ -1,0 +1,9 @@
+---------------DELETE ALL BEFORE SAVING ANYTHING -------------------------
+referencebooksfullpath without any spaces [including escaped whitespaces]
+
+Example:
+
+path/to/file/book1.pdf
+path/to/file/2/book2.pdf
+
+--------------DELETE ABOVE ALL BEFORE SAVING ANYTHING --------------------------
